@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{url_for('static',filename='css/login.css') }}">
+    <title>NS Tuts</title>
+</head>
+
+<body>
+
+    <div class="sign-up-card">
+        <h2>NS Tuts</h2>
+        <h3> Admin Log In</h3>
+
+
+        <div class="input-div">
+
+
+            <form action="/dashboard" method="POST">
+
+                <label for="Email">Username</label>
+                <input type="text" placeholder="Username" name="uname">
+                <br>
+                <label for="Password">Password</label>
+                <input type="password" placeholder="Password" name="pass">
+                <br>
+
+                <button type="submit" class="btn">Submit</button>
+
+            </form>
+
+
+        </div>
+
+
+
+    </div>
+
+</body>
+
+</html>

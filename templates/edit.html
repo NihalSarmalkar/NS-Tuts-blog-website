@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" media="screen and (max-width : 768px)" href="{{url_for('static',filename='css/phone.css') }}">
+    <link rel="stylesheet" href="{{url_for('static',filename='css/style.css') }}">
+    <link rel="stylesheet" href="{{url_for('static',filename='css/admin.css') }}">
+    <title>Document</title>
+</head>
+
+<body>
+    <nav class="navbar backgroundnav h-nav-resp">
+        <ul class="nav-list v-class-resp">
+            <div class="logo">
+                <img src="{{url_for('static',filename='img/img.png') }}" alt="logo">
+            </div>
+            <li>
+                <a href="/">Home</a>
+            </li>
+            <li>
+                <a href="/blog">Blog</a>
+            </li>
+            <li>
+                <a href="/about">About</a>
+            </li>
+            <li>
+                <a href="/#services">Services</a>
+            </li>
+            <li>
+                <a href="/contact">Contact Us</a>
+            </li>
+
+        </ul>
+
+        <div class="rightNav v-class-resp">
+            <input type="text" name="Search" id="search">
+            <button class="btn btn-sm">Search</button>
+            <a href="/logout"><button class="btn btn-sm">Log Out</button></a>
+
+        </div>
+        <div class="burger">
+            <div class="line"></div>
+            <div class="line"></div>
+            <div class="line"></div>
+        </div>
+
+    </nav>
+    <h1>Admin Dashboard</h1>
+
+    <div class="dash-container">
+        <h1>Basic action</h1>
+        <a href="/dashboard"><button class="readmore_button">Dasboard hone</button></a>
+        <a href="/logout"><button class="readmore_button">Logout</button></a>
+
+        <hr>
+
+        <h1>Add/Edit Post</h1>
+        <div class="form">
+            <form action="/edit/{{sno}}" method="post">
+                <label for=" ">Title</label>
+                <input type="text " name="title" id="name " placeholder="Enter your title" required data-validation-required-message="Please enter your name.">
+                <label for=" ">Tagline</label>
+                <input type="text " name="tagline" id="name " placeholder="Enter Your tagline " required data-validation-required-message="Please enter your phone number.">
+                <label for=" ">Slug</label>
+                <input type="text " name="slug" id="name " placeholder="Enter mail id " required data-validation-required-message="Please enter your email address.">
+                <label for=" ">content</label>
+                <textarea name="content" id="name" cols="30" rows="10" placeholder="Enter message " required data-validation-required-message="Please enter a message."></textarea>
+                <label for=" ">content1</label>
+                <textarea name="content1" id="name" cols="30" rows="10" placeholder="Enter message "></textarea>
+                <label for=" ">content2</label>
+                <textarea name="content2" id="name" cols="30" rows="10" placeholder="Enter message "></textarea>
+                <label for=" ">content3</label>
+                <textarea name="content3" id="name" cols="30" rows="10" placeholder="Enter message "></textarea>
+                <label for=" ">Image</label>
+                <input type="text " name="img_file" id="name " placeholder="Enter mail id ">
+                <label for=" ">Image small</label>
+                <input type="text " name="img_file_s" id="name " placeholder="Enter mail id ">
+                <button type="submit" class="readmore_button" id="sendMessageButton">Submit</button>
+            </form>
+        </div>
+
+        <br>
+        <br>
+
+    </div>
+</body>
+
+</html>

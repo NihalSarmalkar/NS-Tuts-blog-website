@@ -1,0 +1,21 @@
+{
+    "params": {
+        "local_server": "True",
+        "local_uri": "mysql://root:@localhost/nstuts",
+        "prod_uri": "mysql://root:@localhost/nstuts",
+        "fb_uri": "https://facebook.com",
+        "git_uri": "https://github.com/NihalSarmalkar",
+        "t_uri": "https://twitter.com",
+        "gmail-user": "nihalsarmalkar1@gmail.com",
+        "gmail-password": "1710sateri",
+        "about_text": "Hey my name is nihal",
+        "no_of_post": 2,
+        "blog_name": "NS Tuts",
+        "admin_user": "harry",
+        "admin_password": "Password",
+        "upload_location": "E:\\My Website\\Project-2\\static\\img"
+
+
+
+    }
+}

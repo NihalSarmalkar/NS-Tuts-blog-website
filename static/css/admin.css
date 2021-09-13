@@ -1,0 +1,19 @@
+* {
+    padding: 0%;
+    margin: 0%;
+}
+
+h1 {
+    text-align: center;
+    font-family: 'Ubuntu', sans-serif;
+    padding: 25px;
+}
+
+.dash-container {
+    max-width: 104vh;
+    margin: auto;
+}
+
+table {
+    margin: auto;
+}

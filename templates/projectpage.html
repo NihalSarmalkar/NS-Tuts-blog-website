@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+    <link rel="stylesheet" media="screen and (max-width : 768px)" href="{{url_for('static',filename='css/phone.css') }}">
+    <script src="https://cdn.jsdelivr.net/gh/google/code-prettify@master/loader/run_prettify.js?lang=css&amp;skin=desert"></script>
+
+
+    <link rel="stylesheet" href="{{url_for('static',filename='css/style.css') }}">
+    <title>about</title>
+</head>
+
+<body>
+    <nav class="navbar backgroundnav h-nav-resp">
+        <ul class="nav-list v-class-resp">
+            <div class="logo">
+                <img src="{{url_for('static',filename='img/img.png') }}" alt="logo">
+            </div>
+            <li>
+                <a href="/index.html">Home</a>
+            </li>
+            <li>
+                <a href="/blog.html">Blog</a>
+            </li>
+            <li>
+                <a href="/about.html">About</a>
+            </li>
+            <li>
+                <a href="/index.html#services">Services</a>
+            </li>
+            <li>
+                <a href="/contact.html">Contact Us</a>
+            </li>
+
+        </ul>
+
+        <div class="rightNav v-class-resp">
+            <input type="text" name="Search" id="search">
+            <button class="btn btn-sm">Search</button>
+        </div>
+        <div class="burger">
+            <div class="line"></div>
+            <div class="line"></div>
+            <div class="line"></div>
+        </div>
+
+    </nav>
+
+    <h2 class="text-center" style="color: rgb(0, 0, 0);">Digit Recognition</h2>
+    <div class="youtubevideo">
+        <iframe width="560" height="315" src="https://www.youtube.com/embed/PB_zGBsHVQI" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+    </div>
+
+    <div class="projectpage_container">
+        <div class="projectpage_top">
+            <h1>Libraries used : </h1>
+            <div class="listoflibrary">
+                <h2>1) Tensorflow</h2>
+                <h2>2) numpy</h2>
+                <h2>3) Pandas</h2>
+                <h2>4) matplotlib</h2>
+                <h2>5) CV</h2>
+            </div>
+
+        </div>
+        <pre class="prettyprint codepart">
+
+            pip install library name
+               
+        </pre>
+        <div class="projectpage_code">
+            <h1>Source Code</h1>
+            <pre class="prettyprint codepart">
+
+        import pandas as pd
+        import tensorflow as tf
+        import numpy as np
+        import cv2 as cv  
+        import matplotlib.pyplot as plt
+        from tensorflow.python.keras.metrics import accuracy
+        mnist = tf.keras.datasets.mnist
+
+        (x_train, y_train),(x_test,y_test)=mnist.load_data()# split the data in training set as tuple
+
+        x_train = tf.keras.utils.normalize(x_train , axis = 1)
+        x_test = tf.keras.utils.normalize(x_test , axis = 1)
+
+        model= tf.keras.models.Sequential()
+        model.add(tf.keras.layers.Flatten(input_shape=(28,28)))
+        model.add(tf.keras.layers.Dense(units=128,activation=tf.nn.relu))
+        model.add(tf.keras.layers.Dense(units=128,activation=tf.nn.relu))
+        model.add(tf.keras.layers.Dense(units=10,activation=tf.nn.softmax))
+        model.compile(optimizer='adam' , loss='sparse_categorical_crossentropy',metrics=['accuracy'])
+        model.fit(x_train,y_train, epochs=3)#As the number of epochs increases beyond 11,chance of overfitting of the model on training data
+
+        loss , accuracy  =model.evaluate(x_test,y_test)
+        print(accuracy)
+        print(loss)
+
+
+
+        for x in range(1,5):
+            # now we are going to read images it with open cv
+
+            img=cv.imread(f'{x}.png')[:,:,0]#all of it and 1st and last one
+            img=np.invert(np.array([img]))#invert black to white in images so that model wont get confues
+            prediction=model.predict(img)
+            print("----------------")
+            print("The predicted value is : ",np.argmax(prediction))
+            print("----------------")
+            plt.imshow(img[0],cmap=plt.cm.binary)#change the color in black and white
+            plt.show()
+
+
+            
+            </pre>
+        </div>
+    </div>
+
+
+
+    <footer>
+
+        <div class="footerdiv">
+            <p class="text-footer">
+                Copyright &copy; 2021 NS Tuts All rights reserved
+            </p>
+
+        </div>
+
+    </footer>
+
+
+</body>
+
+</html>

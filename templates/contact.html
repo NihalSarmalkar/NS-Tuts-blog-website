@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+    <link rel="stylesheet" media="screen and (max-width : 768px)" href="/static/css/phone.css">
+    <link rel="stylesheet" href="static/css/style.css">
+    <title>contact</title>
+</head>
+
+<body>
+    <nav class="navbar backgroundnav h-nav-resp">
+        <ul class="nav-list v-class-resp">
+            <div class="logo">
+                <img src="static/img/img.png" alt="logo">
+            </div>
+            <li>
+                <a href="/">Home</a>
+            </li>
+            <li>
+                <a href="/blog">Blog</a>
+            </li>
+            <li>
+                <a href="/about">About</a>
+            </li>
+            <li>
+                <a href="/#services">Services</a>
+            </li>
+            <li>
+                <a href="/contact">Contact Us</a>
+            </li>
+
+        </ul>
+        <div class="rightNav v-class-resp">
+            <input type="text" name="Search" id="search">
+            <button class="btn btn-sm">Search</button>
+
+        </div>
+        <div class="burger">
+            <div class="line"></div>
+            <div class="line"></div>
+            <div class="line"></div>
+        </div>
+
+    </nav>
+
+    <h2 class=" text-center " style="color: rgb(0, 0, 0); ">Contact Us</h2>
+
+
+    <div class="grid_contact">
+
+        <form action="/contact" method="post">
+
+            <div class="form">
+                <label for=" ">Name</label>
+
+                <input type="text " name="name" id="name " placeholder="Enter your name " required data-validation-required-message="Please enter your name.">
+                <label for=" ">Mobile number</label>
+                <input type="text " name="phone" id="name " placeholder="Enter Your mobile number " required data-validation-required-message="Please enter your phone number.">
+                <label for=" ">Mail id</label>
+                <input type="text " name="email" id="name " placeholder="Enter mail id " required data-validation-required-message="Please enter your email address.">
+                <label for=" ">Message</label>
+
+                <textarea name="message" id="name" cols="30" rows="10" placeholder="Enter message " required data-validation-required-message="Please enter a message."></textarea>
+                <button class="readmore_button">Submit</button>
+            </div>
+
+        </form>
+
+
+    </div>
+
+
+    <footer>
+
+        <div class="footerdiv">
+            <p class="text-footera">
+                Copyright &copy; 2021 NS Tuts All rights reserved
+            </p>
+
+        </div>
+
+    </footer>
+
+
+</body>
+
+</html>

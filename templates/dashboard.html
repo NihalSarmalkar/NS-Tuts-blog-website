@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" media="screen and (max-width : 768px)" href="static/css/phone.css">
+    <link rel="stylesheet" href="static/css/style.css">
+    <link rel="stylesheet" href="static/css/Admin.css">
+    <title>Document</title>
+</head>
+
+<body>
+    <nav class="navbar backgroundnav h-nav-resp">
+        <ul class="nav-list v-class-resp">
+            <div class="logo">
+                <img src="static/img/img.png" alt="logo">
+            </div>
+            <li>
+                <a href="/">Home</a>
+            </li>
+            <li>
+                <a href="/blog">Blog</a>
+            </li>
+            <li>
+                <a href="/about">About</a>
+            </li>
+            <li>
+                <a href="/#services">Services</a>
+            </li>
+            <li>
+                <a href="/contact">Contact Us</a>
+            </li>
+
+        </ul>
+
+        <div class="rightNav v-class-resp">
+            <input type="text" name="Search" id="search">
+            <button class="btn btn-sm">Search</button>
+            <a href="/logout"><button class="btn btn-sm">Log Out</button></a>
+
+        </div>
+        <div class="burger">
+            <div class="line"></div>
+            <div class="line"></div>
+            <div class="line"></div>
+        </div>
+
+    </nav>
+    <h1>Admin Dashboard</h1>
+
+    <div class="dash-container">
+        <h1>Basic action</h1>
+        <a href="/edit/0"><button class="readmore_button">Add a new post</button></a>
+
+        <hr>
+
+        <h1>Upload a file</h1>
+        <form action="/uploader" method="POST" enctype="multipart/form-data">
+            <input type="file" name="file1" id="">
+            <br>
+            <button class="readmore_button" type="submit">submit</button>
+        </form>
+
+
+        <hr>
+
+
+
+        <h1>Edit Post</h1>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Sno</th>
+                    <th>Title</th>
+                    <th>Date</th>
+                    <th>Edit</th>
+                    <th>Delete</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for post in post%}
+
+
+                <tr>
+                    <td>{{post.sno}}</td>
+                    <td>{{post.title}}</td>
+                    <td>{{post.date}}</td>
+
+                    <td><a href="/edit/{{post.sno}}"><button class="readmore_button float-right">Edit</button></a></td>
+                    <td><a href="/delete/{{post.sno}}"><button class="readmore_button float-right">Delete</button></a></td>
+
+
+                </tr>
+
+                {% endfor %}
+
+            </tbody>
+        </table>
+        <br>
+        <br>
+
+    </div>
+</body>
+
+</html>

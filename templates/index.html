@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link rel="stylesheet" href="static/css/style.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+    <link rel="stylesheet" media="screen and (max-width : 768px)" href="static/css/phone.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <title>NS Tuts</title>
+</head>
+
+<body>
+    <nav class="navbar backgroundnav h-nav-resp">
+        <ul class="nav-list v-class-resp">
+            <div class="logo">
+                <img src="static/img/img.png" alt="logo">
+            </div>
+            <li>
+                <a href="/">Home</a>
+            </li>
+            <li>
+                <a href="/blog">Blog</a>
+            </li>
+            <li>
+                <a href="/about">About</a>
+            </li>
+            <li>
+                <a href="/#services">Services</a>
+            </li>
+            <li>
+                <a href="/contact">Contact Us</a>
+            </li>
+
+        </ul>
+        <div class="rightNav v-class-resp">
+            <input type="text" name="Search" id="search">
+            <button class="btn btn-sm">Search</button>
+            <a href="/dashboard"><button class="btn btn-sm">Login</button></a>
+        </div>
+        <div class="burger">
+            <div class="line"></div>
+            <div class="line"></div>
+            <div class="line"></div>
+        </div>
+
+    </nav>
+    <section class="background firstSection" id="home">
+        <div class="box-main">
+            <div class="firstHalf">
+                <p class="test-big test-bigtop">NS Tuts
+                </p>
+                <p class="test-small test-smalltop">NS Tuts is a youtube channel were computer science related videos are uploaded. Solutions of almost all the HackerRank question and Machine Learning projects are available on the channel.
+                </p>
+                <div class="buttons">
+                    <a href="https://www.youtube.com/c/NSTuts/featured" target="_blank"><button class="btn btnred">Subscribe</button></a>
+
+                    <a href="https://www.youtube.com/watch?v=PB_zGBsHVQI&t=240s" target="_blank"><button class="btn">Like ♥</button></a>
+
+
+                </div>
+            </div>
+            <div class="secondHalf">
+                <img src="static/img/img.png" alt="">
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <h1 class="sub_heading">Featured Articles</h1>
+    <section class="blog section">
+
+        <div class="home-articles max-width-1 m-auto font2">
+            {% for post in posts %}
+            <div class="home-article">
+
+                <div class="home-article-img">
+                    {% set fname = 'img/' + post.img_file %}
+                    <img src="{{url_for('static',filename=fname) }}" alt="article">
+                </div>
+                <div class="home-article-content font1">
+                    <a href="/blogpost/{{post.slug}}">
+                        <h3>{{post.title}}</h3>
+                    </a>
+
+                    <div>{{post.tagline}}</div>
+                    <span style="color: rgb(131, 131, 131);">{{post.date}}</span>
+                    <br> {{post.content[0:50]}} ...
+                    <div>
+                        <a href="/blogpost/{{post.slug}}"><button class="readmore_button">read more</button></a>
+                    </div>
+                </div>
+
+            </div>
+            {% endfor %}
+        </div>
+
+    </section>
+    <br>
+    <br>
+
+    <div class="dots">
+        <span class="dot"></span>
+        <span class="dot"></span>
+        <span class="dot"></span>
+        <span class="dot"></span>
+    </div>
+
+
+    <section class="services-countainer" id="services">
+        <h1 class="sub_heading">Services</h1>
+        <div id="bodycardd">
+            <div class="bodycard">
+                <div class="container">
+                    <div class="card" data-aos="fade-left" data-aos-delay="100" data-aos-duration="1000" data-aos-once="true">
+                        <div class="box">
+                            <div class="content">
+                                <img src="static/img/python-logo1.jpg" alt="Avatar" style="border-radius: 50%; width:100px;">
+
+                                <h3>Python</h3>
+                                <p>Solution videos of python HackerRank questions are available on my youtube channel . Eg: List Comprehension , Nested list ... </p>
+                                <a href="https://youtube.com/playlist?list=PLZbCQP58a3y66M3lq9lEYlO2oLKHE0wav" target="_blank">Watch</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="card" data-aos="fade-up" data-aos-delay="100" data-aos-duration="1000" data-aos-once="true">
+                        <div class="box">
+                            <div class="content">
+                                <img src="static/img/python-logo1.jpg" alt="Avatar" style="border-radius: 50%; width:100px">
+
+
+                                <h3>Digit Recognition</h3>
+                                <p>Hands-on implementation to Recognize handwritten digits in python using Tensorflow library and Mnist data set.</p>
+                                <a href="https://youtube.com/playlist?list=PLZbCQP58a3y66M3lq9lEYlO2oLKHE0wav" target="_blank">Watch</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="card" data-aos="fade-right" data-aos-delay="100" data-aos-duration="1000" data-aos-once="true">
+                        <div class="box">
+                            <div class="content">
+                                <img src="static/img/Cpp_logo.png" alt="Avatar" style="border-radius: 50%; width:100px">
+
+
+                                <h3>C++</h3>
+                                <p>Solution videos of C++ HackerRank questions are available on my youtube channel . Eg: Variable sized array , Templates ... </p>
+                                <a href="https://youtube.com/playlist?list=PLZbCQP58a3y75mQc2kyXHulDhtx41z-wh" target="_blank">Watch</a>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+    </section>
+    <div class="dots">
+        <span class="dot"></span>
+        <span class="dot"></span>
+        <span class="dot"></span>
+        <span class="dot"></span>
+    </div>
+
+    <section class="project_section">
+        <h1 class="sub_heading">Projects</h1>
+        <br>
+        <br>
+
+        <div class="top_row">
+            <div class="cardpro">
+                <img src="static/img/digit recognition.jpeg" alt="John" style="width:100%">
+                <h1>Digit Recognition</h1>
+                <p class="title">By using python</p>
+                <br>
+                <button>Watch</button>
+                <br>
+                <br>
+                <a href="/projectpage"><button>Source code</button></a>
+            </div>
+            <div class="cardpro">
+                <img src="static/img/speed test python.jpeg" alt="John" style="width:100%">
+                <h1>Internet Speed Test</h1>
+                <p class="title">By using python</p>
+                <br>
+                <button>Watch</button>
+                <br>
+                <br>
+                <a href="/projectpage_2"><button>Source code</button></a>
+            </div>
+            <div class="cardpro">
+                <img src="static/img/responsive web.jpeg" alt="John" style="width:100%">
+                <h1>Responsive Website</h1>
+                <p class="title">By using HTML and CSS</p>
+                <br>
+                <button>Watch</button>
+                <br>
+                <br>
+                <a href="/projectpage_3"><button>Source code</button></a>
+            </div>
+        </div>
+    </section>
+    <br>
+    <br>
+    <div class="dots">
+        <span class="dot"></span>
+        <span class="dot"></span>
+        <span class="dot"></span>
+        <span class="dot"></span>
+    </div>
+
+
+    <h1 class="sub_heading">Contents</h1>
+
+    <section class="section left">
+
+        <div class="paras">
+            <p class="sectionTag test-big">Python<i class="fab fa-python"></i></p>
+
+            <p class="sectionsubTag test-small" style="padding: 15px;"> All Python HackerRank question solution are available on the channel. Also Machine Learning python project video of Digit Recognition is uploaded on NS Tuts </p>
+        </div>
+        <div class="thumbnail">
+            <img src="static/img/python-logo1.jpg" alt="laptop image" class="imgFluid">
+        </div>
+
+    </section>
+
+    <section class="section left">
+        <div class="paras">
+            <p class="sectionTag test-big">C++<i class="fab fa-cplusplus"></i></p>
+
+            <p class="sectionsubTag test-small" style="padding: 15px;">Solution videos of C++ HackerRank questions are available on my youtube channel. More C++ related content will be uploaded soon</p>
+        </div>
+        <div class="thumbnail">
+            <img src="static/img/Cpp_logo.png" alt="laptop image" class="imgFluid">
+        </div>
+
+    </section>
+
+    <section class="section left">
+        <div class="paras">
+            <p class="sectionTag test-big">Java<i class="fab fa-java"></i></p>
+
+            <p class="sectionsubTag test-small" style="padding: 15px;">Solution videos of Java HackerRank questions are available on my youtube channel. Also java for android studio playlist will be uploaded soon </p>
+        </div>
+        <div class="thumbnail">
+            <img src="static/img/java_logo.png" alt="laptop image" class="imgFluid">
+        </div>
+    </section>
+
+    <br>
+    <br>
+
+
+
+
+
+    <footer>
+
+        <div class="socials text-footer">
+            <i class="fa fa-instagram" style="font-size:20px;padding: 10px;"></i>
+            <i class="fa fa-linkedin" style="font-size:20px;padding: 10px;"></i>
+            <i class="fa fa-facebook" style="font-size:20px;padding: 10px;"></i>
+            <i class="fa fa-twitter" style="font-size:20px;padding: 10px;"></i>
+        </div>
+        <div class="footerdiv">
+            <p class="text-footer">
+                Copyright &copy; 2021 NS Tuts All rights reserved
+            </p>
+
+        </div>
+
+
+    </footer>
+    <script src="/static/js/resp.js"></script>
+</body>
+
+</html>
