@@ -75,16 +75,16 @@
 
             </div>
         </div>
-        <p class="font1">{{post.content}}</p>
+        <p class="font1">{{post.content | safe}}</p>
         <br>
-        <p class="font1">{{post.content1}}</p>
+        <p class="font1">{{post.content1 | safe}}</p>
         <div class="post-img-small">
             {% set fname = 'img/' + post.img_file_s %}
             <img src="{{url_for('static',filename=fname) }}" alt="">
         </div>
-        <p class="font1">{{post.content2}}</p>
+        <p class="font1">{{post.content2 | safe}}</p>
         <br>
-        <p class="font1">{{post.content3}}</p>
+        <p class="font1">{{post.content3 | safe}}</p>
         <br>
 
 
