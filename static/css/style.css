@@ -550,7 +550,7 @@ a:hover {
 }
 
 .post-img-small {
-    height: 404px;
+    height: fit-content;
     overflow: hidden;
     max-width: 80vh;
     margin: auto;

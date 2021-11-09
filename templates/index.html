@@ -90,7 +90,7 @@
 
                     <div>{{post.tagline}}</div>
                     <span style="color: rgb(131, 131, 131);">{{post.date}}</span>
-                    <br> {{post.content[0:50]}} ...
+                    <br> {{post.content[0:50] | safe}} ...
                     <div>
                         <a href="/blogpost/{{post.slug}}"><button class="readmore_button">read more</button></a>
                     </div>
