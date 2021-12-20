@@ -1,4 +1,4 @@
-from flask import Flask, render_template,request,session,redirect
+from flask import Flask, render_template,request,session,redirect,flash
 import json
 from flask.app import Flask
 from flask.globals import request
@@ -14,6 +14,17 @@ with open('config.json', 'r') as c:
 
 local_server=True
 app=Flask(__name__)
+
+app.config.update(
+    MAIL_SERVER='smtp.gmail.com',
+    MAIL_PORT='465',
+    MAIL_USE_SSL=True,
+    MAIL_USERNAME=params["gmail_user"],
+    MAIL_PASSWORD=params["gmail_password"]
+
+)
+
+mail=Mail(app)
 
 if(local_server):
     app.config['SQLALCHEMY_DATABASE_URI'] = params["local_uri"]
@@ -51,7 +62,7 @@ class Posts(db.Model):
 
 @app.route("/")
 def home():
-    posts=Posts.query.filter_by().all()
+    posts=Posts.query.filter_by().limit(5).all()
     return render_template('index.html',params=params,posts=posts)
 
 @app.route("/blog")
@@ -61,6 +72,7 @@ def blog():
 
 @app.route("/contact", methods=['GET','POST'])
 def contact():
+    flash("Message submited successfully ! ","success")
     if(request.method=='POST'):
         #add entry to database
         name = request.form.get('name')
@@ -71,6 +83,13 @@ def contact():
         entry= Contacts(name=name,phone_num=phone,msg=message,date=datetime.now(),email=email)
         db.session.add(entry)
         db.session.commit()
+        mail.send_message('New message from blog ',
+                            sender=email,
+                            recipients=[params['gmail_user']],
+                            body=name+" has send you a message."+"\n"+"\n"+"Message : "+message+"\n"+"Mobile no. - "+phone
+                            )
+
+        
 
 
 
@@ -180,7 +199,8 @@ def uploader():
 @app.route("/blogpost/<string:post_slug>",methods=['GET'])
 def blogpost(post_slug):
     post=Posts.query.filter_by(slug=post_slug).first()
-    posts=Posts.query.filter_by().all()
+    posts=Posts.query.filter_by().limit(3).all()
+
 
     return render_template('blogpost.html',params=params,post=post,posts=posts)
 
