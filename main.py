@@ -62,6 +62,7 @@ class Posts(db.Model):
 
 @app.route("/")
 def home():
+    flash("Watch our new video ! ","success")
     posts=Posts.query.filter_by().limit(5).all()
     return render_template('index.html',params=params,posts=posts)
 
@@ -72,7 +73,7 @@ def blog():
 
 @app.route("/contact", methods=['GET','POST'])
 def contact():
-    flash("Message submited successfully ! ","success")
+    
     if(request.method=='POST'):
         #add entry to database
         name = request.form.get('name')
@@ -88,6 +89,12 @@ def contact():
                             recipients=[params['gmail_user']],
                             body=name+" has send you a message."+"\n"+"\n"+"Message : "+message+"\n"+"Mobile no. - "+phone
                             )
+        flash("Message submited successfully ! ","success")
+
+    
+    
+
+
 
         
 

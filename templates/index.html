@@ -48,6 +48,30 @@
         </div>
 
     </nav>
+
+   
+        
+    {% with messages = get_flashed_messages(category_filter=["success"]) %}
+        {% if messages %}
+            {% for i in messages%}
+            <div class="alert_container">
+                <div class="alert1" >
+                    <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span> 
+                    <br>
+                    <br>
+                    <iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/PB_zGBsHVQI" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                    <h1 style="text-align: center;color: black;">{{i}}</h1> 
+                    
+                </div>
+
+            </div>
+
+                
+                
+            {% endfor %}
+        {% endif %}
+    {% endwith %}
+
     <section class="background firstSection" id="home">
         <div class="box-main">
             <div class="firstHalf">

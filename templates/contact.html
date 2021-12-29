@@ -49,6 +49,20 @@
     </nav>
 
     <h2 class=" text-center " style="color: rgb(0, 0, 0); ">Contact Us</h2>
+    {% with messages = get_flashed_messages(category_filter=["success"]) %}
+        {% if messages %}
+            {% for i in messages%}
+                <div class="alert" style="background-color: #5cf436;">
+                    
+                    <strong>Sucess !</strong> {{i}}.
+                    <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span> 
+                </div>
+                
+            {% endfor %}
+        {% endif %}
+    {% endwith %}
+    
+    
 
    
 
