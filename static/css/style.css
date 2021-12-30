@@ -175,7 +175,7 @@ html {
 }
 
 .left {
-    flex-direction: row-reverse;
+    flex-direction: column-reverse;
 }
 
 .paras {
@@ -287,6 +287,15 @@ html {
     min-height: 80vh;
     background: #ffffff;
 }
+.bodycard2 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    min-height: 69vh;
+    background: #ffffff;
+}
+
 
 body .container {
     display: flex;
@@ -294,14 +303,14 @@ body .container {
     align-items: center;
     flex-wrap: wrap;
     max-width: 1200px;
-    margin: 40px 0;
+
 }
 
 body .container .card {
     position: relative;
     min-width: 320px;
     height: 440px;
-    box-shadow: inset 5px 5px 5px rgba(0, 0, 0, 0.2), inset -5px -5px 15px rgba(255, 255, 255, 0.1), 5px 5px 15px rgba(0, 0, 0, 0.3), -5px -5px 15px rgba(255, 255, 255, 0.1);
+   
     /* border-radius: 15px; */
     margin: 30px;
     transition: 0.5s;
@@ -319,13 +328,14 @@ body .container .card:nth-child(3) .box .content a {
     background: #000000;
 }
 
+
 body .container .card .box {
     position: absolute;
     top: 20px;
     left: 20px;
     right: 20px;
     bottom: 20px;
-    background: #b4b4b4;
+
     border-radius: 15px;
     display: flex;
     justify-content: center;
@@ -345,7 +355,7 @@ body .container .card .box:before {
     left: 0;
     width: 50%;
     height: 100%;
-    background: rgba(0, 0, 0, 0.03);
+
 }
 
 body .container .card .box .content {
@@ -392,6 +402,7 @@ body .container .card .box .content a {
     transition: 0.5s;
     font-family: 'Ubuntu', sans-serif;
 }
+
 
 body .container .card .box .content a:hover {
     box-shadow: 0 10px 20px rgba(0, 0, 0, 0.6);
@@ -496,7 +507,7 @@ a:hover {
 
 .home-articles {
     padding: 18px;
-    background-color: rgb(248, 239, 239, 0.5);
+   
     margin-top: 23px;
     position: relative;
 }
@@ -524,7 +535,7 @@ a:hover {
 
 .sub_heading {
     text-align: center;
-    font-size: 45px;
+    font-size: 31px;
     padding: 30px 10px;
     padding-bottom: 0px;
     text-decoration: underline;
@@ -793,6 +804,23 @@ a:hover {
   .closebtn:hover {
     color: black;
   }
+  .content2 img{
+   
+    width: 262px;
+    border-radius: 15px;
+    border: 1px solid;
+}
+.para_content{
+    height: 85px;
+}
+.content2_heading{
+    height: 75px;
+    margin-top: 10px;
+}
+.content2_heading h3{
+    color: white;
+}
+
   
 
   

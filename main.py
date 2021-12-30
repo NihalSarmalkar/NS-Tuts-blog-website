@@ -15,16 +15,7 @@ with open('config.json', 'r') as c:
 local_server=True
 app=Flask(__name__)
 
-app.config.update(
-    MAIL_SERVER='smtp.gmail.com',
-    MAIL_PORT='465',
-    MAIL_USE_SSL=True,
-    MAIL_USERNAME=params["gmail_user"],
-    MAIL_PASSWORD=params["gmail_password"]
 
-)
-
-mail=Mail(app)
 
 if(local_server):
     app.config['SQLALCHEMY_DATABASE_URI'] = params["local_uri"]
@@ -84,11 +75,7 @@ def contact():
         entry= Contacts(name=name,phone_num=phone,msg=message,date=datetime.now(),email=email)
         db.session.add(entry)
         db.session.commit()
-        mail.send_message('New message from blog ',
-                            sender=email,
-                            recipients=[params['gmail_user']],
-                            body=name+" has send you a message."+"\n"+"\n"+"Message : "+message+"\n"+"Mobile no. - "+phone
-                            )
+        
         flash("Message submited successfully ! ","success")
 
     
@@ -176,7 +163,8 @@ def edit(sno):
 def dashboard():
     if 'user' in session and session['user']==params['admin_user']:
         post=Posts.query.all()
-        return render_template('dashboard.html',params=params,post=post)
+        contacts=Contacts.query.all()
+        return render_template('dashboard.html',params=params,post=post,contacts=contacts)
 
     if request.method=='POST':
         username=request.form.get('uname')

@@ -9,6 +9,9 @@
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
     <link rel="stylesheet" media="screen and (max-width : 768px)" href="static/css/phone.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
     <title>NS Tuts</title>
 </head>
@@ -96,7 +99,10 @@
     </section>
 
 
-    <h1 class="sub_heading">Featured Articles</h1>
+    <div class="w3-center w3-padding-64">
+        <span class="w3-xlarge w3-bottombar w3-border-dark-grey w3-padding-16">Featured Articles</span>
+    </div>
+
     <section class="blog section">
 
         <div class="home-articles max-width-1 m-auto font2">
@@ -126,28 +132,54 @@
 
     </section>
     <br>
-    <br>
+    <div class="w3-row w3-container">
+        <div class="w3-center w3-padding-64">
+          <span class="w3-xlarge w3-bottombar w3-border-dark-grey w3-padding-16">What We Offer</span>
+        </div>
+        <div class="w3-col l3 m6 w3-light-grey w3-container w3-padding-16">
+          <h3>Design</h3>
+          <p>Phasellus eget enim eu lectus faucibus vestibulum. Suspendisse sodales pellentesque elementum.</p>
+        </div>
+    
+        <div class="w3-col l3 m6 w3-grey w3-container w3-padding-16">
+          <h3>Branding</h3>
+          <p>Phasellus eget enim eu lectus faucibus vestibulum. Suspendisse sodales pellentesque elementum.</p>
+        </div>
+    
+        <div class="w3-col l3 m6 w3-dark-grey w3-container w3-padding-16">
+          <h3>Consultation</h3>
+          <p>Phasellus eget enim eu lectus faucibus vestibulum. Suspendisse sodales pellentesque elementum.</p>
+        </div>
+    
+        <div class="w3-col l3 m6 w3-black w3-container w3-padding-16">
+          <h3>Promises</h3>
+          <p>Phasellus eget enim eu lectus faucibus vestibulum. Suspendisse sodales pellentesque elementum.</p>
+        </div>
+      </div>
 
-    <div class="dots">
-        <span class="dot"></span>
-        <span class="dot"></span>
-        <span class="dot"></span>
-        <span class="dot"></span>
-    </div>
+    <br>
+    
 
 
     <section class="services-countainer" id="services">
-        <h1 class="sub_heading">Services</h1>
+        <div class="w3-center w3-padding-64">
+            <span class="w3-xlarge w3-bottombar w3-border-dark-grey w3-padding-16">Services</span>
+          </div>
         <div id="bodycardd">
             <div class="bodycard">
                 <div class="container">
                     <div class="card" data-aos="fade-left" data-aos-delay="100" data-aos-duration="1000" data-aos-once="true">
                         <div class="box">
                             <div class="content">
-                                <img src="static/img/python-logo1.jpg" alt="Avatar" style="border-radius: 50%; width:100px;">
+                                <img src="static/img/python-logo1.jpg" alt="Avatar" style="border-radius: 50%;
+                                width: 100px;
+                                margin: 15px;
+                                border: 1px solid;">
 
                                 <h3>Python</h3>
-                                <p>Solution videos of python HackerRank questions are available on my youtube channel . Eg: List Comprehension , Nested list ... </p>
+                                <div class="para_content">
+                                    <p>Solution videos of python HackerRank questions are available on my youtube channel.</p>
+                                </div>
                                 <a href="https://youtube.com/playlist?list=PLZbCQP58a3y66M3lq9lEYlO2oLKHE0wav" target="_blank">Watch</a>
                             </div>
                         </div>
@@ -156,11 +188,16 @@
                     <div class="card" data-aos="fade-up" data-aos-delay="100" data-aos-duration="1000" data-aos-once="true">
                         <div class="box">
                             <div class="content">
-                                <img src="static/img/python-logo1.jpg" alt="Avatar" style="border-radius: 50%; width:100px">
+                                <img src="static/img/python-logo1.jpg" alt="Avatar" style="border-radius: 50%;
+                                width: 100px;
+                                margin: 15px;
+                                border: 1px solid;">
 
 
                                 <h3>Digit Recognition</h3>
-                                <p>Hands-on implementation to Recognize handwritten digits in python using Tensorflow library and Mnist data set.</p>
+                                <div class="para_content">
+                                    <p>Hands-on implementation to Recognize handwritten digits in python using Tensorflow library and Mnist data set.</p>
+                                </div>
                                 <a href="https://youtube.com/playlist?list=PLZbCQP58a3y66M3lq9lEYlO2oLKHE0wav" target="_blank">Watch</a>
                             </div>
                         </div>
@@ -169,11 +206,14 @@
                     <div class="card" data-aos="fade-right" data-aos-delay="100" data-aos-duration="1000" data-aos-once="true">
                         <div class="box">
                             <div class="content">
-                                <img src="static/img/Cpp_logo.png" alt="Avatar" style="border-radius: 50%; width:100px">
+                                <img src="static/img/Cpp_logo.png" alt="Avatar" style="border-radius: 50%;
+                                width: 100px;
+                                margin: 15px;
+                                border: 1px solid;">
 
 
                                 <h3>C++</h3>
-                                <p>Solution videos of C++ HackerRank questions are available on my youtube channel . Eg: Variable sized array , Templates ... </p>
+                                <div class="para_content"><p>Solution videos of C++ HackerRank questions are available on my youtube channel.</p></div>
                                 <a href="https://youtube.com/playlist?list=PLZbCQP58a3y75mQc2kyXHulDhtx41z-wh" target="_blank">Watch</a>
                             </div>
                         </div>
@@ -185,19 +225,74 @@
 
         </div>
     </section>
-    <div class="dots">
-        <span class="dot"></span>
-        <span class="dot"></span>
-        <span class="dot"></span>
-        <span class="dot"></span>
-    </div>
+
 
     <section class="project_section">
-        <h1 class="sub_heading">Projects</h1>
-        <br>
-        <br>
+        
+        <div id="bodycardd bodycardd2">
 
-        <div class="top_row">
+            <div class="bodycard2">
+                
+                <div class="container">
+                    <div class="card" data-aos="fade-left" data-aos-delay="100" data-aos-duration="1000" data-aos-once="true">
+                        <div class="box">
+                            <div class="content content2">
+                                <img src="static/img/speed test python.jpeg" alt="Avatar"  >
+                                <br>
+                                <div class="content2_heading">
+                                    <h3 >Internet Speed Test</h3>
+
+                                </div>
+
+                                
+                                
+                                <a href="/projectpage" target="_blank">Source Code</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="card" data-aos="fade-up" data-aos-delay="100" data-aos-duration="1000" data-aos-once="true">
+                        <div class="box">
+                            <div class="content content2">
+                                <img src="static/img/digit recognition.jpeg" alt="Avatar"  >
+                                <br>
+
+
+                                <div class="content2_heading">
+                                    <h3 >Digit Recognition</h3>
+
+                                </div>
+                               
+                                <a  href="/projectpage" target="_blank">Source code</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="card" data-aos="fade-right" data-aos-delay="100" data-aos-duration="1000" data-aos-once="true">
+                        <div class="box">
+                            <div class="content content2">
+                                <img src="static/img/responsive web.jpeg" alt="Avatar" >
+                                <br>
+                                <div class="content2_heading">
+                                    <h3  >Responsive Website</h3>
+
+                                </div>
+
+
+                               
+                                
+                                <a href="/projectpage_3" target="_blank">Source Code</a>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+        <!-- <div class="top_row">
             <div class="cardpro">
                 <img src="static/img/digit recognition.jpeg" alt="John" style="width:100%">
                 <h1>Digit Recognition</h1>
@@ -228,19 +323,13 @@
                 <br>
                 <a href="/projectpage_3"><button>Source code</button></a>
             </div>
-        </div>
+        </div> -->
     </section>
     <br>
-    <br>
-    <div class="dots">
-        <span class="dot"></span>
-        <span class="dot"></span>
-        <span class="dot"></span>
-        <span class="dot"></span>
-    </div>
 
-
-    <h1 class="sub_heading">Contents</h1>
+    <div class="w3-center w3-padding-64">
+        <span class="w3-xlarge w3-bottombar w3-border-dark-grey w3-padding-16">Contents</span>
+      </div>
     <br>
 
     <section class="section left">
