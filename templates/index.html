@@ -9,6 +9,8 @@
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
     <link rel="stylesheet" media="screen and (max-width : 768px)" href="static/css/phone.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="icon" href="static/img/img.png"  />
+<link rel="shortcut icon" href="static/img/img.png"  />
     <title>NS Tuts</title>
 </head>
 
@@ -107,7 +109,7 @@
     <section class="blog section">
 
         <div class="home-articles max-width-1 m-auto font2">
-            {% for post in posts %}
+            {% for post in posts[:4] %}
             <div class="home-article">
 
                 <div class="home-article-img">
@@ -178,7 +180,7 @@
                                     <p >A Flask web app with create, read, update and delete functionality and hosted on heroku</p>
                                 </div>
                                 <div class="link_container">
-                                    <a href="/projectpage_3">Source code <i class="fas fa-angle-right"></i></a>
+                                    <a href="https://github.com/NihalSarmalkar/To-do-Task-flask-">Source code <i class="fas fa-angle-right"></i></a>
 
                                 </div>
                                 

@@ -7,7 +7,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
     <link rel="stylesheet" media="screen and (max-width : 768px)" href="{{url_for('static',filename='css/phone.css') }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="{{url_for('static',filename='css/style.css') }}">
+    <link rel="icon" href="static/img/img.png"  />
+<link rel="shortcut icon" href="static/img/img.png"  />
     <title>NS Tuts</title>
 </head>
 
@@ -88,25 +91,25 @@
     <div class="home-articles max-width-1 m-auto font2">
         <h2 style="text-align: center;">People who read this also readed</h2>
         <div class="row">
-            {% for post in posts %}
-            <div class="home-article more-post">
-                <div class="home-article-img">
-                    {% set fname = 'img/' + post.img_file %}
-                    <img src="{{url_for('static',filename=fname) }}" alt="article">
-                </div>
-                <div class="home-article-content font1 center">
-                    <a href="/blogpost.html">
-                        <h3>{{post.title}}</h3>
-                    </a>
+            {% for post in posts[:2] %}
+                <div class="home-article more-post">
+                    <div class="home-article-img">
+                        {% set fname = 'img/' + post.img_file %}
+                        <img src="{{url_for('static',filename=fname) }}" alt="article">
+                    </div>
+                    <div class="home-article-content font1 center">
+                        <a href="/blogpost.html">
+                            <h3>{{post.title}}</h3>
+                        </a>
 
-                    <div>{{post.tagline}}</div>
-                    <span style="color: rgb(131, 131, 131);">{{post.date}}</span>
-                    <br> {{post.content[0:50]| safe}} ...
-                    <div>
-                        <a href="/blogpost/{{post.slug}}"><button class="readmore_button">read more</button></a>
+                        <div>{{post.tagline}}</div>
+                        <span style="color: rgb(131, 131, 131);">{{post.date}}</span>
+                        <br> {{post.content[0:50]| safe}} ...
+                        <div>
+                            <a href="/blogpost/{{post.slug}}"><button class="readmore_button">read more</button></a>
+                        </div>
                     </div>
                 </div>
-            </div>
             {% endfor %}
         </div>
     </div>
@@ -116,12 +119,29 @@
 
     <footer>
 
-        <div class="footerdiv">
-            <p class="text-footer">
-                Copyright &copy; 2021 NS Tuts All rights reserved
-            </p>
+        <div class="footer_container">
+            <div class="socials text-footer">
+                <i class="fa fa-instagram" style="font-size:20px;padding: 10px;"></i>
+                <i class="fa fa-linkedin" style="font-size:20px;padding: 10px;"></i>
+                <i class="fa fa-facebook" style="font-size:20px;padding: 10px;"></i>
+                <i class="fa fa-twitter" style="font-size:20px;padding: 10px;"></i>
+            </div>
+
+            <div class="footer_links">
+                <a href="">Privacy Policy</a>
+                <a href="">Terms and Condition</a>
+            </div>
+            <div class="footerdiv">
+                <p class="text-footer">
+                    Copyright &copy; 2021 NS Tuts All rights reserved
+                </p>
+    
+            </div>
 
         </div>
+
+        
+
 
     </footer>
 

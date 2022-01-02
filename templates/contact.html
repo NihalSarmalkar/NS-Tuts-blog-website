@@ -7,9 +7,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
     <link rel="stylesheet" media="screen and (max-width : 768px)" href="/static/css/phone.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="static/css/style.css">
-    
-    <title>contact</title>
+    <link rel="icon" href="static/img/img.png"  />
+<link rel="shortcut icon" href="static/img/img.png"  />
+    <title>NS Tuts</title>
 </head>
 
 <body>
@@ -48,7 +50,8 @@
 
     </nav>
 
-    <h2 class=" text-center " style="color: rgb(0, 0, 0); ">Contact Us</h2>
+    <h2 class=" text-center " style="color: rgb(0, 0, 0); font-size: 25px;">Contact Us</h2>
+    <h4 class=" text-center " style="color: rgb(53, 52, 52); font-size: 15px;">If you have any queries, please do not hesitate to contact us by filling up the form given below.</h4>
     {% with messages = get_flashed_messages(category_filter=["success"]) %}
         {% if messages %}
             {% for i in messages%}
@@ -94,12 +97,29 @@
 
     <footer>
 
-        <div class="footerdiv">
-            <p class="text-footera">
-                Copyright &copy; 2021 NS Tuts All rights reserved
-            </p>
+        <div class="footer_container">
+            <div class="socials text-footer">
+                <i class="fa fa-instagram" style="font-size:20px;padding: 10px;"></i>
+                <i class="fa fa-linkedin" style="font-size:20px;padding: 10px;"></i>
+                <i class="fa fa-facebook" style="font-size:20px;padding: 10px;"></i>
+                <i class="fa fa-twitter" style="font-size:20px;padding: 10px;"></i>
+            </div>
+
+            <div class="footer_links">
+                <a href="">Privacy Policy</a>
+                <a href="">Terms and Condition</a>
+            </div>
+            <div class="footerdiv">
+                <p class="text-footer">
+                    Copyright &copy; 2021 NS Tuts All rights reserved
+                </p>
+    
+            </div>
 
         </div>
+
+        
+
 
     </footer>
 
