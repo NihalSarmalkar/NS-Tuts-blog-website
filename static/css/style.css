@@ -86,7 +86,7 @@ html {
 }
 
 .backgroundnav {
-    background: rgba(0, 0, 0, 0.7) url('../Img/bg.jpg');
+    background: rgba(0, 0, 0, 0.7) url('../img/bg.jpg');
     background-blend-mode: darken;
 }
 
@@ -1039,3 +1039,14 @@ body .container .card {
       margin: auto;
       color: #000;
   }
+  iframe{
+    height:315px;
+    width: 560px;
+    
+  }
+  .center_text {
+        margin-top: 35px;
+        text-align: center;
+        font-size: xx-large;
+        
+    }

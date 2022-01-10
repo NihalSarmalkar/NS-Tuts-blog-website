@@ -2,7 +2,7 @@ from flask import Flask, render_template,request,session,redirect,flash
 import json
 from flask.app import Flask
 from flask.globals import request
-from flask_mail import Mail
+
 from flask_sqlalchemy import SQLAlchemy
 from datetime import datetime
 import json
@@ -97,6 +97,14 @@ def about():
 @app.route('/projectpage')
 def projectpage_1():
     return render_template('projectpage.html')
+
+@app.route('/privacy-policy')
+def pp():
+    return render_template('pp.html')
+
+@app.route('/terms-and-conditions')
+def tandc():
+    return render_template('tandc.html')
 
 @app.route('/projectpage_2')
 def projectpage_2():
