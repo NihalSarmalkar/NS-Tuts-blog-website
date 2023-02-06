@@ -225,5 +225,6 @@ def blogpost(post_slug):
 
     return render_template('blogpost.html',params=params,post=post,posts=posts)
 
-app.run(debug=True)
+if __name__ == "__main__":
+    app.run(debug=True)
 
