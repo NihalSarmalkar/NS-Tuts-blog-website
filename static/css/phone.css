@@ -82,12 +82,12 @@ html {
 }
 
 .backgroundnav {
-    background: rgba(0, 0, 0, 0.7) url('../Img/bg.jpg');
+    background: rgba(0, 0, 0, 0.7) url('/static/img/bg.jpg');
     background-blend-mode: darken;
 }
 
 .background {
-    background: rgba(0, 0, 0, 0.7) url('../Img/bg.jpg');
+    background: rgba(0, 0, 0, 0.7) url('/static/img/bg.jpg');
     background-size: cover;
     background-blend-mode: darken;
 }
@@ -232,7 +232,7 @@ html {
     display: flex;
     justify-content: center;
     align-items: center;
-    background: rgba(0, 0, 0, 0.7) url('../Img/bg.jpg');
+    background: rgba(0, 0, 0, 0.7) url('/static/img/bg.jpg');
     color: aliceblue;
     background-blend-mode: darken;
 }
@@ -396,6 +396,9 @@ a:hover {
         flex-direction: column;
         transition: all 0.8s ease-out;
     }
+    .phone_none{
+        display: none;
+    }
     .rightNav {
         width: 35%;
         text-align: center;
@@ -432,7 +435,7 @@ a:hover {
         width: 150px;
     }
     .firstSection {
-        height: 75vh;
+        height: 95vh;
     }
     .test-smalltop {
         font-size: 15px;
@@ -527,14 +530,15 @@ a:hover {
     .row_1 {
         
         flex-direction: column;
+        max-width: 100%;
     }
     .row_2 {
         
         flex-direction: column;
     }
     iframe{
-        width: 200px;
-        height: 142px;
+        width: 310px;
+        height: 202px;
 
     }
     .slider__inner {
@@ -543,30 +547,30 @@ a:hover {
     }
     .para_content {
         
-        width: 312px;
+        width: 100%;
     }
     .column_1 {
-        width: 312px;
+        width: 100%;
         
     }
     .column_2 {
-        width: 312px;
+        width: 100%;
         
     }
     .column_3 {
-        width: 312px;
+        width: 100%;
         
     }
     .column_4 {
-        width: 312px;
+        width: 100%;
         
     }
     .column_5 {
-        width: 312px;
+        width: 100%;
         
     }
     .column_6 {
-        width: 312px;
+        width: 100%;
         
     }
     .home-article {
@@ -629,7 +633,7 @@ a:hover {
         margin-bottom: 0;
     }
     .post-img {
-        height: 155px;
+        height: fit-content;
         
     }
     .blog-post-content p {
@@ -691,6 +695,12 @@ a:hover {
         margin: auto;
         overflow: scroll;
         margin-bottom: 20px;
+    }
+    .content_container{
+        max-width: 100%;
+    }
+    .row_blog{
+        flex-direction: column-reverse;
     }
     
     

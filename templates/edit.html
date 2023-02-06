@@ -63,23 +63,22 @@
         <div class="form">
             <form action="/edit/{{sno}}" method="post">
                 <label for=" ">Title</label>
-                <input type="text " name="title" id="name " placeholder="Enter your title" required data-validation-required-message="Please enter your name.">
+                <input type="text " name="title" id="name " placeholder="Enter your title" required data-validation-required-message="Please enter your Title." value="{{post.title}}">
                 <label for=" ">Tagline</label>
-                <input type="text " name="tagline" id="name " placeholder="Enter Your tagline " required data-validation-required-message="Please enter your phone number.">
+                <input type="text " name="tagline" id="name " placeholder="Enter Your tagline " required data-validation-required-message="Please enter your Tagline." value="{{post.tagline}}">
                 <label for=" ">Slug</label>
-                <input type="text " name="slug" id="name " placeholder="Enter mail id " required data-validation-required-message="Please enter your email address.">
+                <input type="text " name="slug" id="name " placeholder="Enter mail id " required data-validation-required-message="Please enter Slug." value="{{post.slug}}">
+                <label for=" ">Category</label>
+                <input type="text " name="categories" id="name " placeholder="Enter mail id " required data-validation-required-message="Please enter your email address." value="{{post.categories}}">
                 <label for=" ">content</label>
-                <textarea name="content" id="name" cols="30" rows="10" placeholder="Enter message " required data-validation-required-message="Please enter a message."></textarea>
-                <label for=" ">content1</label>
-                <textarea name="content1" id="name" cols="30" rows="10" placeholder="Enter message "></textarea>
-                <label for=" ">content2</label>
-                <textarea name="content2" id="name" cols="30" rows="10" placeholder="Enter message "></textarea>
+                <textarea name="content" id="name" cols="30" rows="10" placeholder="Enter content " required data-validation-required-message="Please enter a message." >{{post.content}}</textarea>
+                
                 <label for=" ">content3</label>
-                <textarea name="content3" id="name" cols="30" rows="10" placeholder="Enter message "></textarea>
+                <textarea name="content3" id="name" cols="30" rows="10" placeholder="Enter content ">{{post.content3}}</textarea>
                 <label for=" ">Image</label>
-                <input type="text " name="img_file" id="name " placeholder="Enter mail id ">
+                <input type="text " name="img_file" id="name " placeholder="Enter image " value="{{post.img_file}}">
                 <label for=" ">Image small</label>
-                <input type="text " name="img_file_s" id="name " placeholder="Enter mail id ">
+                <input type="text " name="img_file_s" id="name " placeholder="Enter small image" value="{{post.img_file_s}}">
                 <button type="submit" class="readmore_button" id="sendMessageButton">Submit</button>
             </form>
         </div>

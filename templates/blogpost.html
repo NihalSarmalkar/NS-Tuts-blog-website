@@ -2,17 +2,18 @@
 <html lang="en">
 
 <head>
+
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="{{url_for('static',filename='css/style.css') }}">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
     <link rel="stylesheet" media="screen and (max-width : 768px)" href="{{url_for('static',filename='css/phone.css') }}">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-   
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">   
     <link rel="icon" href="static/img/img.png"  />
-<link rel="shortcut icon" href="static/img/img.png"  />
+    <link rel="shortcut icon" href="static/img/img.png"  />
     <title>NS Tuts</title>
+    
 </head>
 
 <body>
@@ -58,42 +59,52 @@
         {% set fname = 'img/' + post.img_file %}
         <img src="{{url_for('static',filename=fname) }}" alt="">
     </div>
-    <div class="m-auto blog-post-content max-width-2 m-auto my-2">
+    <div class="blogpost-container">
+        <div class="blogpost-container-right phone_none">
+
+        </div>
+        <div class="m-auto blog-post-content max-width-2 m-auto my-2">
         
-        <div class="blogpost-meta">
-            <div class="author-info">
-                <div>
-                    <b>
-                  Tagline - {{post.tagline}}
-                </b>
+            <div class="blogpost-meta">
+                <div class="author-info">
+                    <div>
+                        <b>
+                      Tagline - {{post.tagline}}
+                    </b>
+                    </div>
+                    <div>{{post.date}}</div>
                 </div>
-                <div>{{post.date}}</div>
+    
             </div>
-
+            <p class="font1">{{post.content | safe}}</p>
+            <br>
+            
+            <div class="post-img-small">
+                {% set fname = 'img/' + post.img_file_s %}
+                <img src="{{url_for('static',filename=fname) }}" alt="">
+            </div>
+            
+            <br>
+            <p class="font1">{{post.content3 | safe}}</p>
+            <br>
+    
+    
+    
         </div>
-        <p class="font1">{{post.content | safe}}</p>
-        <br>
-        <p class="font1">{{post.content1 | safe}}</p>
-        <div class="post-img-small">
-            {% set fname = 'img/' + post.img_file_s %}
-            <img src="{{url_for('static',filename=fname) }}" alt="">
+        <div class="blogpost-container-right phone_none">
+            
         </div>
-        <p class="font1">{{post.content2 | safe}}</p>
-        <br>
-        <p class="font1">{{post.content3 | safe}}</p>
-        <br>
-
-
 
     </div>
+    
 
 
     <hr>
-    <div class="home-articles max-width-1 m-auto font2">
+    <div class="home-articles max-width-1 m-auto font2" style="max-width: none;">
         <h2 style="text-align: center;">People who read this also readed</h2>
         <div class="row">
             {% for post in posts[:2] %}
-                <div class="home-article more-post">
+                <div class="home-article more-post" >
                     <div class="home-article-img">
                         {% set fname = 'img/' + post.img_file %}
                         <img src="{{url_for('static',filename=fname) }}" alt="article">

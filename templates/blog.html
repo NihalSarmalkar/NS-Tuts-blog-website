@@ -13,6 +13,11 @@
     <link rel="icon" href="static/img/img.png"  />
 <link rel="shortcut icon" href="static/img/img.png"  />
     <title>NS Tuts</title>
+    <style>
+        * {
+  box-sizing: border-box;
+}
+    </style>
 </head>
 
 <body>
@@ -52,35 +57,147 @@
     </nav>
 
     <h2 class="text-center" style="color: rgb(0, 0, 0);">Blog</h2>
-
-    <section class="blog section">
-
-        <div class="home-articles max-width-1 m-auto font2">
-            {% for post in posts %}
-            <div class="home-article">
-
-                <div class="home-article-img">
-                    {% set fname = 'img/' + post.img_file %}
-                    <img src="{{url_for('static',filename=fname) }}" alt="article">
-                </div>
-                <div class="home-article-content font1">
-                    <a href="/blogpost/{{post.slug}}">
-                        <h3>{{post.title}}</h3>
-                    </a>
-
-                    <div>{{post.tagline}}</div>
-                    <span style="color: rgb(131, 131, 131);">{{post.date}}</span>
-                    <br> {{post.content[0:100] | safe}} ...
-                    <div>
-                        <a href="/blogpost/{{post.slug}}"><button class="readmore_button">read more</button></a>
+    <div class="under">
+            
+    </div>     
+      <div class="row_blog">
+        <div class="leftcolumn_blog">
+            <div class="home-articles max-width-1 m-auto font2">
+                {% for post in posts %}
+                <div class="home-article">
+    
+                    <div class="home-article-img">
+                        {% set fname = 'img/' + post.img_file %}
+                        <img src="{{url_for('static',filename=fname) }}" alt="article">
                     </div>
+                    <div class="home-article-content font1">
+                        <a href="/blogpost/{{post.slug}}">
+                            <h3>{{post.title}}</h3>
+                        </a>
+    
+                        <div>{{post.tagline}}</div>
+                        <span style="color: rgb(131, 131, 131);">{{post.date}}</span>
+                        <br> {{post.content[0:100] | safe}} ...
+                        <div>
+                            <a href="/blogpost/{{post.slug}}"><button class="readmore_button">read more</button></a>
+                        </div>
+                    </div>
+    
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+        <div class="rightcolumn_blog">
+          <div class="card_blog phone_none">
+            <br>
+            <br>
+            <div class="fakeimg_blog" style="height:60px;">About Blog</div>
+            <br>
+            <p style="width: 350px;">Exciting blogs related tp computer science, Software devepolment and technology are uploaded here.</p>
+          </div>
+          <div class="card_blog">
+            <div class="fakeimg_blog" >Categories</div>
+            
+            <br>
+            {% if postlist  %}
+            <div class="popular_post_section">
+                <div>
+
+                    ->>
+
+                </div>
+                
+                
+                <div style="margin-left: 10px;">
+                    <a href="/blog" style="text-decoration: none; color: #585858; ">
+                        <h3>  All Blogs</h3>
+                    </a>
+  
                 </div>
 
             </div>
-            {% endfor %}
-        </div>
+            <hr>
+            <br>
+            {% endif %}
+            {% for i in range(categories|length) %}
+            <div class="popular_post_section">
+                <div>
 
-    </section>
+                    {{i+1}})
+
+                </div>
+                
+                
+                <div style="margin-left: 10px;">
+                    <a href="/blog?category={{categories[i]}}" style="text-decoration: none; color: #585858;">
+                        <h3>  {{categories[i]}}</h3>
+                    </a>
+  
+                </div>
+
+            </div>
+            <hr>
+            <br>
+                              
+            {% endfor %}
+            
+            
+          </div>
+          <div class="card_blog phone_none">
+            <div class="fakeimg_blog" style="height:60px;">Popular posts</div>
+            <br>
+            {% if postlist  %}
+                {% for post in postlist %}
+                <div class="popular_post_section">
+                    <div>
+
+                        {{post.sno}})
+
+                    </div>
+                    
+                    
+                    <div style="margin-left: 10px;">
+                        <a href="/blogpost/{{post.slug}}">
+                            <h3>  {{post.title}}</h3>
+                        </a>
+        
+                        <div>  {{post.tagline}}</div>
+                        <span style="color: rgb(131, 131, 131);">  {{post.date}}</span>
+                    </div>
+
+                </div>
+                                
+                {% endfor %}
+
+            {% else %}
+                {% for post in posts %}
+                <div class="popular_post_section">
+                    <div>
+
+                        {{post.sno}})
+
+                    </div>
+                    
+                    
+                    <div style="margin-left: 10px;">
+                        <a href="/blogpost/{{post.slug}}">
+                            <h3>  {{post.title}}</h3>
+                        </a>
+        
+                        <div>  {{post.tagline}}</div>
+                        <span style="color: rgb(131, 131, 131);">  {{post.date}}</span>
+                    </div>
+
+                </div>
+                                
+                {% endfor %}
+            {% endif %}
+            
+          </div>
+          
+        </div>
+      </div>
+
 
 
     <footer>

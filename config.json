@@ -1,7 +1,7 @@
 {
     "params": {
         "local_server": "True",
-        "local_uri": "mysql://root:@localhost/nstuts",
+        "local_uri": "mysql://sql12596219:hQBtDCgKsC@sql12.freesqldatabase.com:3306/sql12596219",
         "prod_uri": "mysql://root:@localhost/nstuts",
         "fb_uri": "https://facebook.com",
         "git_uri": "https://github.com/NihalSarmalkar",

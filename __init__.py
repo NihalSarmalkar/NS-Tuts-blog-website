@@ -2,7 +2,7 @@ from flask import Flask, render_template,request,session,redirect,flash
 import json
 from flask.app import Flask
 from flask.globals import request
-
+from flask import request
 from flask_sqlalchemy import SQLAlchemy
 from datetime import datetime
 import json
@@ -21,6 +21,7 @@ if(local_server):
     app.config['SQLALCHEMY_DATABASE_URI'] = params["local_uri"]
 else:
     app.config['SQLALCHEMY_DATABASE_URI'] = params["prod_uri"]
+    
 db=SQLAlchemy(app)
 
 app.secret_key="super_secret_key"
@@ -32,7 +33,7 @@ class Contacts(db.Model):
     name=db.Column(db.String(80), nullable=False)
     phone_num=db.Column(db.String(12), nullable=False)
     msg=db.Column(db.String(120), nullable=False)
-    date=db.Column(db.String(12),nullable=True)
+   
     email=db.Column(db.String(20), nullable=False) 
 
 class Posts(db.Model):
@@ -41,11 +42,9 @@ class Posts(db.Model):
     title=db.Column(db.String(80), nullable=False)
     slug=db.Column(db.String(21), nullable=False)
     content=db.Column(db.String(120), nullable=False)
-    content1=db.Column(db.String(120), nullable=False)
-    content2=db.Column(db.String(120), nullable=False)
+    categories=db.Column(db.String(21), nullable=True)
     content3=db.Column(db.String(120), nullable=False)
     tagline=db.Column(db.String(120), nullable=False)
-    date=db.Column(db.String(12),nullable=True)
     img_file=db.Column(db.String(12),nullable=True)
     img_file_s=db.Column(db.String(12),nullable=True)
 
@@ -54,13 +53,32 @@ class Posts(db.Model):
 @app.route("/")
 def home():
     flash("Watch our new video ! ","success")
-    posts=Posts.query.filter_by().limit(5).all()
-    return render_template('index.html',params=params,posts=posts)
+    posts=Posts.query.filter_by().all()
+    categories_list=["Computer Science","Gadgets","Tutorials"]
+    
+    
+    return render_template('index.html',params=params,posts=posts,categories=categories_list)
 
 @app.route("/blog")
 def blog():
-    posts=Posts.query.filter_by().all()
-    return render_template('blog.html',params=params,posts=posts)
+    if(request.args):
+        args = request.args
+        print(args['category'])
+        posts=Posts.query.filter_by(categories=args['category']).all()
+        postlist=Posts.query.filter_by().all()
+        thiisset=set()
+        for i in postlist:
+            thiisset.add(i.categories)
+   
+        return render_template('blog.html',params=params,posts=posts,postlist=postlist,categories=list(thiisset))
+    else:
+        posts=Posts.query.filter_by().all()
+        thiisset=set()
+        for i in posts:
+            thiisset.add(i.categories)
+      
+        return render_template('blog.html',params=params,posts=posts,categories=list(thiisset))
+
 
 @app.route("/contact", methods=['GET','POST'])
 def contact():
@@ -72,7 +90,7 @@ def contact():
         phone = request.form.get('phone')
         message= request.form.get('message')
 
-        entry= Contacts(name=name,phone_num=phone,msg=message,date=datetime.now(),email=email)
+        entry= Contacts(name=name,phone_num=phone,msg=message,email=email)
         db.session.add(entry)
         db.session.commit()
         
@@ -136,15 +154,15 @@ def edit(sno):
             tagline=request.form.get('tagline')
             slug=request.form.get('slug')
             content=request.form.get('content')
-            content1=request.form.get('content1')
-            content2=request.form.get('content2')
+            categories=request.form.get('categories')
+
             content3=request.form.get('content3')
             img_file=request.form.get('img_file')
             img_file_s=request.form.get('img_file_s')
-            date=datetime.now()
+
             if sno=='0':
 
-                post=Posts(title=box_title,slug=slug,tagline=tagline,content=content,content1=content1,content2=content2,content3=content3,img_file=img_file,img_file_s=img_file_s,date=date)
+                post=Posts(title=box_title,slug=slug,tagline=tagline,content=content,categories=categories,content3=content3,img_file=img_file,img_file_s=img_file_s)
                 db.session.add(post)
                 db.session.commit()
                 
@@ -153,11 +171,11 @@ def edit(sno):
                 post.title=box_title
                 post.slug=slug
                 post.content=content
-                post.content1=content1
-                post.content2=content2
+                post.categories=categories
+
                 post.content3=content3
                 post.tagline=tagline
-                post.data=date
+         
                 post.img_file=img_file
                 post.img_file_s=img_file_s
                 db.session.commit()
